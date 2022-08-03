@@ -35,6 +35,12 @@ plt.show()
 train_images = train_images / 255.0
 test_images = test_images / 255.0
 
+plt.figure()
+plt.imshow(train_images[0])
+plt.colorbar()
+plt.grid(False)
+plt.show()
+
 plt.figure(figsize=(10,10))
 for i in range(25): #Mostrar las primeras 25 imagenes
     plt.subplot(5,5,i+1)
@@ -49,6 +55,7 @@ plt.show()
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),#Flatten aplana las imagenes a una sola linea de pixeles
     keras.layers.Dense(128, activation='relu'),#Capa de 128 neuronas que procesa la informacion(relu)
+    keras.layers.Dense(128, activation='relu'),#Capa de 128 neuronas que procesa la informacion(relu)
     keras.layers.Dense(10, activation='softmax') #Capa de 10 nodos que devuelve las 10 posibilidades de cada categoria(sofmax)
 ])
 
@@ -57,8 +64,8 @@ model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-#
-model.fit(train_images, train_labels, epochs=10)
+#Entrena el modelo
+model.fit(train_images, train_labels, epochs=15)
 
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
