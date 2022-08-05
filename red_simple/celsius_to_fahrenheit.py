@@ -4,7 +4,7 @@ import numpy as np
 #celsius = np.array([-40, -10, 0, 8, 15, 22, 38, 42, 234, 4]) # Datos de temperatura en celsius
 #fahre = np.array([-40, 14, 32, 46, 59, 72, 100, 107.6, 453.2, 39.2]) # La misma temperatura pero en fahrenheit
 
-celsius = np.array([-40, -10, 0, 8, 15, 22, 38, 42, 234, 4, 12, 45, 675, 234, 123, 876, 34, 78, 94, 3, 56, 79, 43, 17, -43, 34])
+celsius = np.array([1, -2, 54.5, 12.6, -1, 23, 64, 69])
 fahre = ((celsius * (9/5))+32)
 
 print("Celsius: ")
