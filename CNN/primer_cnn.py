@@ -22,8 +22,9 @@ plt.colorbar()
 plt.grid(False)
 plt.show()
 
+modelo = tf.keras.models.load_model('red_cnn/ropa_cnn.h5')
 # Modelo # 
-model = tf.keras.Sequential([
+'''model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(64, (3,3), padding='same', activation=tf.nn.relu, input_shape=(28,28,1)),
     # Capa convolucion que devuelve 32 imagenes con un filtro 3x3
     tf.keras.layers.MaxPooling2D((2,2), strides=2),
@@ -48,16 +49,17 @@ plt.xlabel('Pasos')
 plt.ylabel('Precision')
 plt.plot(historial.history['accuracy'])
 plt.title("Funcion precision")
-plt.show()
+plt.show()'''
 
 #model.save('red_cnn/ropa_cnn.h5')
 
 # model = tf.keras.models.load_model('red_cnn/ropa_cnn.h5')
 
 # MOSTRAR RESULTADOS #
-predictions = model.predict(test_images)
+predictions = modelo.predict(test_images)
 bien = 0
 mal = 0
+'''
 for x in range(10000):
     if(np.argmax(predictions[x]) == test_labels[x]):
         bien += 1
@@ -67,9 +69,9 @@ for x in range(10000):
         print(np.argmax(predictions[x]), " --- " , test_labels[x])
 
 print("[BIEN]:{}".format(bien))
-print("[MAL]:{}".format(mal))
+print("[MAL]:{}".format(mal))'''
 
-'''
+
 def plot_image(i, predictions_array, true_label, img):
   predictions_array, true_label, img = predictions_array, true_label[i], img[i]
   plt.grid(False)
@@ -127,4 +129,3 @@ for i in range(num_images):
   plot_value_array(i, predictions[i], test_labels)
 plt.tight_layout()
 plt.show()
-'''
