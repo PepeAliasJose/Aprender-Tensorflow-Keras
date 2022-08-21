@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 print(tf.__version__)
 
@@ -22,7 +23,8 @@ plt.colorbar()
 plt.grid(False)
 plt.show()
 
-modelo = tf.keras.models.load_model('red_cnn/ropa_cnn.h5')
+print("El directorio actual es: {}".format(os.getcwd()))
+modelo = tf.keras.models.load_model("tensorflow-learning\\Aprender-Tensorflow-Keras\\CNN\\red_cnn\\ropa_cnn.h5")
 # Modelo # 
 '''model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(64, (3,3), padding='same', activation=tf.nn.relu, input_shape=(28,28,1)),

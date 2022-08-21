@@ -75,7 +75,7 @@ modelo = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
     tf.keras.layers.MaxPooling2D(2,2),
 
-    tf.keras.layers.Dropout(0.2),
+    tf.keras.layers.Dropout(0.4),
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512,activation='relu'),
     tf.keras.layers.Dense(5, activation='softmax')
@@ -87,7 +87,7 @@ modelo.compile(optimizer='adam',
 
 modelo.summary()
 
-PASOS = 100
+PASOS = 80
 
 ENTRENAR = 2935
 VALIDAR = 735
@@ -105,7 +105,7 @@ val_loss = history.history['val_loss']
 
 epoch_range = range(PASOS)
 
-modelo.save('red_cnn/flores_cnn.h5')
+modelo.save("tensorflow-learning\\Aprender-Tensorflow-Keras\\CNN\\red_cnn\\flores_cnn.h5")
 
 plt.figure(figsize=(8,8))
 plt.subplot(1,2,1)
